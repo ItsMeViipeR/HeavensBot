@@ -52,6 +52,22 @@ public class Bot {
                         )
                         .setDefaultPermissions(
                                 DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE)
+                        ),
+                Commands.slash("kick", "Kick a specified user")
+                        .addOption(
+                                OptionType.USER,
+                                "target",
+                                "The member to kick",
+                                true
+                        )
+                        .addOption(
+                                OptionType.STRING,
+                                "reason",
+                                "The reason why you kick this member",
+                                false
+                        )
+                        .setDefaultPermissions(
+                                DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS)
                         )
         ).queue();
     }

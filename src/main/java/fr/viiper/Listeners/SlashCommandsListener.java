@@ -27,6 +27,9 @@ public class SlashCommandsListener extends ListenerAdapter {
             case "clear":
                 Clear.run(event);
                 break;
+            case "kick":
+                Kick.run(event);
+                break;
         }
     }
 }

@@ -17,6 +17,7 @@ public class Help {
         embedBuilder.addField("serverinfo", "Display server information", false);
         embedBuilder.addField("userinfo", "Display user information", false);
         embedBuilder.addField("clear", "Clear the specified number of messages", false);
+        embedBuilder.addField("kick", "Kick a specified user", false);
         embedBuilder.setColor(RandomColor.generate());
 
         event.replyEmbeds(embedBuilder.build()).queue();
