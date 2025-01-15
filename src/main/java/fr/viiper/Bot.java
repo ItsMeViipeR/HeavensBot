@@ -4,6 +4,8 @@ import fr.viiper.Events.*;
 import fr.viiper.Listeners.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -32,9 +34,25 @@ public class Bot {
         commands.addCommands(
                 Commands.slash("ping", "Gives the bot latency"),
                 Commands.slash("help", "Displays the help message"),
-                Commands.slash("userinfo", "Displays information about a user").addOption(OptionType.USER, "user", "User to get information about", false),
+                Commands.slash("userinfo", "Displays information about a user")
+                        .addOption(
+                                OptionType.USER,
+                                "user",
+                                "User to get information about",
+                                false
+                        ),
                 Commands.slash("serverinfo", "Displays information about the server"),
-                Commands.slash("botinfo", "DIsplays information about the bot")
+                Commands.slash("botinfo", "Displays information about the bot"),
+                Commands.slash("clear", "Clear a specified amount of messages in the current channel")
+                        .addOption(
+                                OptionType.INTEGER,
+                                "amount",
+                                "Number of messages to clear",
+                                true
+                        )
+                        .setDefaultPermissions(
+                                DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE)
+                        )
         ).queue();
     }
 }

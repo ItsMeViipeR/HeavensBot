@@ -16,6 +16,7 @@ public class Help {
         embedBuilder.addField("botinfo", "Display bot information", false);
         embedBuilder.addField("serverinfo", "Display server information", false);
         embedBuilder.addField("userinfo", "Display user information", false);
+        embedBuilder.addField("clear", "Clear the specified number of messages", false);
         embedBuilder.setColor(RandomColor.generate());
 
         event.replyEmbeds(embedBuilder.build()).queue();

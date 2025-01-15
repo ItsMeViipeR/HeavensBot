@@ -24,6 +24,9 @@ public class SlashCommandsListener extends ListenerAdapter {
             case "botinfo":
                 BotInfo.run(event);
                 break;
+            case "clear":
+                Clear.run(event);
+                break;
         }
     }
 }
