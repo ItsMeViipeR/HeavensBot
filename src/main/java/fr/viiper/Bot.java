@@ -68,7 +68,26 @@ public class Bot {
                         )
                         .setDefaultPermissions(
                                 DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS)
+                        ),
+                Commands.slash("ban", "Ban a specified user")
+                        .addOption(
+                                OptionType.USER,
+                                "target",
+                                "The member to ban",
+                                true
                         )
+                        .addOption(OptionType.INTEGER, "clear_messages", "Clear the messages for x days", true, false)
+                        .addOption(
+                                OptionType.STRING,
+                                "reason",
+                                "The reason why you ban this member",
+                                false
+                        )
+                        .setDefaultPermissions(
+                                DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS, Permission.BAN_MEMBERS)
+                        ),
+                Commands.slash("unban", "Unban a specified user")
+                        .addOption(OptionType.STRING, "id", "the id of the member you want to unbar", true, false)
         ).queue();
     }
 }

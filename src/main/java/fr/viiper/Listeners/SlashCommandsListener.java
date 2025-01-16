@@ -30,6 +30,11 @@ public class SlashCommandsListener extends ListenerAdapter {
             case "kick":
                 Kick.run(event);
                 break;
+            case "ban":
+                Ban.run(event);
+                break;
+            case "unban":
+                Unban.run(event);
         }
     }
 }

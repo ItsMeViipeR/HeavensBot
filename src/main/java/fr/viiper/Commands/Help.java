@@ -18,6 +18,8 @@ public class Help {
         embedBuilder.addField("userinfo", "Display user information", false);
         embedBuilder.addField("clear", "Clear the specified number of messages", false);
         embedBuilder.addField("kick", "Kick a specified user", false);
+        embedBuilder.addField("ban", "Ban a specified user", false);
+        embedBuilder.addField("unban", "Unban a specified user", false);
         embedBuilder.setColor(RandomColor.generate());
 
         event.replyEmbeds(embedBuilder.build()).queue();

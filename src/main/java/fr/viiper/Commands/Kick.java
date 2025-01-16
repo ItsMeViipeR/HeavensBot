@@ -35,8 +35,6 @@ public class Kick {
         }
 
         if(reason != null) {
-            System.out.println("Reason isn't null");
-
             Objects.requireNonNull(event.getGuild()).kick(target).reason(reason.getAsString()).queue();
 
             embedBuilder.setTitle("Success");
@@ -47,7 +45,6 @@ public class Kick {
             event.replyEmbeds(embedBuilder.build()).queue();
 
         } else {
-            System.out.println("Reason is null");
             Objects.requireNonNull(event.getGuild()).kick(target).reason("Kicked by " + event.getUser().getEffectiveName()).queue();
 
             embedBuilder.setTitle("Success");
