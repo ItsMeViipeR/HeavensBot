@@ -35,6 +35,13 @@ public class SlashCommandsListener extends ListenerAdapter {
                 break;
             case "unban":
                 Unban.run(event);
+                break;
+            case "mute":
+                Mute.run(event);
+                break;
+            case "unmute":
+                Unmute.run(event);
+                break;
         }
     }
 }

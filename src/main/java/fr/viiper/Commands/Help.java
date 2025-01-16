@@ -20,7 +20,10 @@ public class Help {
         embedBuilder.addField("kick", "Kick a specified user", false);
         embedBuilder.addField("ban", "Ban a specified user", false);
         embedBuilder.addField("unban", "Unban a specified user", false);
+        embedBuilder.addField("mute", "Mute a specified user", false);
+        embedBuilder.addField("unmute", "Unmute a specified user", false);
         embedBuilder.setColor(RandomColor.generate());
+        embedBuilder.setFooter("Requested by " + event.getUser().getGlobalName() + " (" + event.getUser().getName() + ")", event.getUser().getAvatarUrl());
 
         event.replyEmbeds(embedBuilder.build()).queue();
     }

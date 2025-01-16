@@ -88,6 +88,13 @@ public class Bot {
                         ),
                 Commands.slash("unban", "Unban a specified user")
                         .addOption(OptionType.STRING, "id", "the id of the member you want to unbar", true, false)
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.BAN_MEMBERS)),
+                Commands.slash("mute", "Mute a specified user")
+                        .addOption(OptionType.USER, "user", "User to mute", true, false)
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_ROLES, Permission.MODERATE_MEMBERS)),
+                Commands.slash("unmute", "Unmute a specified user")
+                        .addOption(OptionType.USER, "user", "User to unmute", true, false)
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MANAGE_ROLES, Permission.MODERATE_MEMBERS))
         ).queue();
     }
 }
