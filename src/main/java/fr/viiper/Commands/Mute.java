@@ -21,13 +21,22 @@ public class Mute {
         assert guild != null;
         assert userOption != null;
 
+        Member bot = guild.getSelfMember();
+
         Member member = userOption.getAsMember();
 
         assert member != null;
 
-        List<Role> roles = guild.getRoles();
-
         EmbedBuilder embedBuilder = new EmbedBuilder();
+
+        if(member.getId().equals(bot.getId())) {
+            embedBuilder.setTitle("Error");
+            embedBuilder.setDescription("You can't mute me");
+            embedBuilder.setColor(Color.RED);
+            embedBuilder.setFooter("Requested by " + event.getUser().getGlobalName() + " (" + event.getUser().getName() + ")", event.getUser().getAvatarUrl());
+
+            event.replyEmbeds(embedBuilder.build()).setEphemeral(true).queue();
+        }
 
         if(member.hasPermission(Permission.MODERATE_MEMBERS)) {
             embedBuilder.setTitle("Error");

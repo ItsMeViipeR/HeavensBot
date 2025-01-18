@@ -32,6 +32,15 @@ public class Ban {
 
         EmbedBuilder eb = new EmbedBuilder();
 
+        if(targetMember.getId().equals(bot.getId())) {
+            eb.setTitle("Error");
+            eb.setDescription("You can't ban me");
+            eb.setColor(Color.RED);
+            eb.setFooter("Requested by " + event.getUser().getGlobalName() + " (" + event.getUser().getName() + ")", event.getUser().getAvatarUrl());
+
+            event.replyEmbeds(eb.build()).setEphemeral(true).queue();
+        }
+
         if(time > 7) {
             eb.setTitle("Error");
             eb.setDescription("Messages can only be deleted for the 7 past days");
